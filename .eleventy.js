@@ -1,10 +1,15 @@
 const eleventyNavigationPlugin = require('@11ty/eleventy-navigation');
+const shortcodes = require('./shortcodes');
 
 module.exports = config => {
 
   // Plugins
 
   config.addPlugin(eleventyNavigationPlugin);
+
+  // Shortcodes
+
+  config.addShortcode('navlist', shortcodes.navList);
 
   // 11ty defaults
   return {
