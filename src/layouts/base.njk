@@ -17,6 +17,7 @@ siteTitle: 11ty demo
 <body>
 	<header>
 		<nav>
+			{% navlist collections.all | eleventyNavigation, page, 1 %}
 
 			{# Breadcrumbs #}
 			{# {{ navBreadcrumb | safe  }} #}
@@ -31,5 +32,8 @@ siteTitle: 11ty demo
 
 		{% endblock %}
 	</main>
+	<footer>
+		{% navlist collections.all | eleventyNavigation, page, 2 %}
+	</footer>
 </body>
 </html>
