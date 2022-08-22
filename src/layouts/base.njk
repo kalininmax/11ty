@@ -2,6 +2,9 @@
 siteTitle: 11ty demo
 ---
 
+{% set navBreadcrumb = collections.all | eleventyNavigationBreadcrumb(eleventyNavigation.key, { includeSelf: true }) | eleventyNavigationToHtml() %}
+
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -14,7 +17,9 @@ siteTitle: 11ty demo
 <body>
 	<header>
 		<nav>
-			{{ navPages | dump | safe }}
+
+			{# Breadcrumbs #}
+			{# {{ navBreadcrumb | safe  }} #}
 		</nav>
 	</header>
 	<main>
