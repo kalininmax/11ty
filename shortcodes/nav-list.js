@@ -37,9 +37,11 @@ module.exports = (pageNav, page, maxLevel = 999) => {
     }
 
     return (
-      `<${listItemElement}` + (listItemClassList.length ? ` class="${ listItemClassList.join(' ') }"` : '') +'><a' + 
+      `<${listItemElement}` + (listItemClassList.length ? ` class="${ listItemClassList.join(' ') }"` : '') + 
+      (active ? ' aria-current="page"' : '') + '>' + 
+      (active ? '<span' : '<a') + 
       (anchorClassList.length ? ` class="${ anchorClassList.join(' ') }"` : '') +
-      (active ? '' : ` href="${ entry.url }"`) + '>' + entry.title +'</a>' +
+      (active ? '' : ` href="${ entry.url }"`) + '>' + entry.title + (active ? '</span>' : '</a>') +
       (childPages && `<${ listElement }>${ childPages }</${ listElement }>`) + `</${listItemElement}>`
     );
 
