@@ -1,0 +1,38 @@
+{% if pagelist %}
+	<aside class="pagelist">
+		{% for post in pagelist %}
+			<article>
+				<h2><a href="{{ post.url }}">{{ post.data.title }}</a></h2>
+
+				{% if post.data.date %}
+					<p class="time"><time datetime="{{ post.data.date | datetime }}">{{ post.data.date | datehuman }}</time></p>
+				{% endif %}
+
+				<p>{{ post.data.description }}</p>
+			</article>
+		{% endfor %}
+	</aside>
+{% endif %}
+
+{% if pagination.href.previous or pagination.href.next %}
+	<div class="pagenav">
+		{% if pagination.href.previous %}
+			<a href="{{ pagination.href.previous }}">previous</a>
+		{% endif %}
+
+		{# {{ pagination.pageNumber | dump | safe }} #}
+		<ul class="pagenav-list">
+			{% for pageLink in pagination.hrefs %}
+				{% if page.url === pageLink %}
+					<li aria-current="page"><span>{{ loop.index }}</span></li>
+				{% else %}
+					<li><a href="{{ pageLink }}">{{ loop.index }}</a></li>
+				{% endif %}
+			{% endfor %}
+		</ul>
+
+		{% if pagination.href.next %}
+			<p><a href="{{ pagination.href.next }}">next</a></p>
+		{% endif %}
+	</div>
+{% endif %}
