@@ -1,4 +1,5 @@
 const eleventyNavigationPlugin = require('@11ty/eleventy-navigation');
+const shortcodes = require('./lib/shortcodes');
 const filters = require('./lib/filters');
 
 const dev = global.dev = (process.env.ELEVENTY_ENV === 'development');
