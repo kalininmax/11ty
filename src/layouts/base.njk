@@ -1,9 +1,5 @@
----
-siteTitle: 11ty demo
----
-
-{% set navBreadcrumb = collections.all | eleventyNavigationBreadcrumb(eleventyNavigation.key, { includeSelf: true }) | eleventyNavigationToHtml() %}
-
+{% set siteTitle = "11ty demo" %}
+{# {% set navBreadcrumb = collections.all | eleventyNavigationBreadcrumb(eleventyNavigation.key, { includeSelf: true }) | eleventyNavigationToHtml() %} #}
 
 <!DOCTYPE html>
 <html lang="ru">
