@@ -1,5 +1,6 @@
 const eleventyNavigationPlugin = require('@11ty/eleventy-navigation');
-const shortcodes = require('./shortcodes');
+const dev = global.dev = (process.env.ELEVENTY_ENV === 'development');
+const now = new Date();
 
 module.exports = config => {
 
@@ -11,6 +12,13 @@ module.exports = config => {
 
   config.addShortcode('navlist', shortcodes.navList);
 
+  // Collections
+
+  config.addCollection('post', collection => 
+    collection
+      .getFilteredByGlob('./src/articles/*.md')
+      .filter(post => dev || (!post.data.draft && post.data.date <= now))
+  );
   // 11ty defaults
   return {
     dir: {
