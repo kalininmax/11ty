@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "clear && npx eleventy --serve --port=9000",
-    "build": "clear && cross-env ELEVENTY_ENV=production npx eleventy"
+    "start": "npx eleventy --serve --port=9000",
+    "build": "cross-env ELEVENTY_ENV=production npx eleventy"
   },
   "keywords": [],
   "author": "",
