@@ -1,4 +1,6 @@
 const eleventyNavigationPlugin = require('@11ty/eleventy-navigation');
+const filters = require('./lib/filters');
+
 const dev = global.dev = (process.env.ELEVENTY_ENV === 'development');
 const now = new Date();
 
@@ -19,6 +21,13 @@ module.exports = config => {
       .getFilteredByGlob('./src/articles/*.md')
       .filter(post => dev || (!post.data.draft && post.data.date <= now))
   );
+
+  // Filters
+
+  config.addFilter('datehuman', filters.dateformat.friendly);
+  config.addFilter('datetime', filters.dateformat.ymd);
+  config.addFilter('readtime', filters.readtime);
+
   // 11ty defaults
   return {
     dir: {
