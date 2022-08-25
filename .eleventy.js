@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const eleventyNavigationPlugin = require('@11ty/eleventy-navigation');
 const shortcodes = require('./lib/shortcodes');
 const filters = require('./lib/filters');
