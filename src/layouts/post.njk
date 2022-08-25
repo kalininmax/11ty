@@ -1,0 +1,26 @@
+{% extends "./base.njk" %}
+
+{% set nextPost = collections.post | getNextCollectionItem(page) %}
+{% set prevPost = collections.post | getPreviousCollectionItem(page) %}
+
+{% block content %}
+
+	<h1>{{ title }}</h1>
+
+	{% if date %}
+		<p class="time"><time datetime="{{ date | datetime }}">{{ date | datehuman }}</time></p>
+	{% endif %}
+
+	<p class="words">{{ content | wordcount | readtime }}</p>
+
+	{{ content | safe }}
+
+	{% if nextPost %}
+		<p>Next article: <a href="{{ nextPost.url }}">{{ nextPost.data.title }}</a></p>
+	{% endif %}
+
+	{% if prevPost %}
+		<p>Previous article: <a href="{{ prevPost.url }}">{{ prevPost.data.title }}</a></p>
+	{% endif %}
+
+{% endblock %}
