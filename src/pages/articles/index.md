@@ -2,7 +2,6 @@
 title: Article index
 description: A list of articles published on this site.
 layout: articles.njk
-permalink: /articles/
 eleventyNavigation:
   key: articles
   title: Articles

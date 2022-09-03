@@ -1,7 +1,6 @@
 ---
 title: About us
 description: What we do.
-permalink: /about/
 eleventyNavigation:
   key: about
   title: About

@@ -21,7 +21,7 @@ module.exports = config => {
 
   config.addCollection('post', collection => 
     collection
-      .getFilteredByGlob('./src/articles/*.md')
+      .getFilteredByGlob('./src/pages/articles/*.md')
       .filter(post => dev || (!post.data.draft && post.data.date <= now))
   );
 
@@ -34,10 +34,10 @@ module.exports = config => {
   // 11ty defaults
   return {
     dir: {
-      input: 'src',
-      layouts: 'templates',
-      includes: 'includes',
-      data: 'data',
+      input: 'src/pages',
+      layouts: '../templates',
+      includes: '../includes',
+      data: '../data',
       output: 'build'
     },
     templateFormats: ['md', 'njk'],

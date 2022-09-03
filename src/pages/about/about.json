@@ -1,4 +1,3 @@
 {
-	"layout": "page.njk",
-	"permalink": "/about/{{ eleventyNavigation.key | slugify }}/"
+	"layout": "page.njk"
 }
