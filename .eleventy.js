@@ -1,8 +1,8 @@
 require('dotenv').config();
 
 const eleventyNavigationPlugin = require('@11ty/eleventy-navigation');
-const shortcodes = require('./lib/shortcodes');
-const filters = require('./lib/filters');
+const shortcodes = require('./src/templates/lib/shortcodes');
+const filters = require('./src/templates/lib/filters');
 
 const dev = global.dev = (process.env.ELEVENTY_ENV === 'development');
 const now = new Date();
@@ -35,7 +35,9 @@ module.exports = config => {
   return {
     dir: {
       input: 'src',
-      layouts: 'layouts',
+      layouts: 'templates',
+      includes: 'includes',
+      data: 'data',
       output: 'build'
     },
     templateFormats: ['md', 'njk'],

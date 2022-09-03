@@ -1,9 +1,9 @@
-{% extends "./base.njk" %}
+{% extends "./page.njk" %}
 
 {% set nextPost = collections.post | getNextCollectionItem(page) %}
 {% set prevPost = collections.post | getPreviousCollectionItem(page) %}
 
-{% block content %}
+{% block pageContent %}
 
 	<h1>{{ title }}</h1>
 

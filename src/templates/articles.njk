@@ -1,0 +1,22 @@
+{% extends "./ext/base.njk" %}
+
+{% block content %}
+
+	{% include "../includes/header/header.njk" %}
+
+	<main>
+	{% block pageContent %}
+
+		<h1>{{ title }}</h1>
+
+		{{ content | safe }}
+
+		{% include "../includes/article-list/article-list.njk" %}
+
+	{% endblock %}
+	</main>
+
+	{% include "../includes/pagination/pagination.njk" %}
+	{% include "../includes/footer/footer.njk" %}
+
+{% endblock %}

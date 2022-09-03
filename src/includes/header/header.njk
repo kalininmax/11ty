@@ -1,0 +1,8 @@
+{% from "components/button/button.njk" import button %}
+
+<header>
+	<nav>
+		{% navlist collections.all | eleventyNavigation, page, 1 %}
+	</nav>
+	{{ button({ text: 'ButtonText' }) }}
+</header>
